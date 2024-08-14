@@ -9,13 +9,16 @@
         <!-- Language Tabs -->
         <ul class="nav nav-tabs" id="languageTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="ru-tab" data-bs-toggle="tab" href="#ru" role="tab" aria-controls="ru" aria-selected="true">RU</a>
+                <a class="nav-link active" id="ru-tab" data-bs-toggle="tab" href="#ru" role="tab" aria-controls="ru"
+                    aria-selected="true">RU</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="en-tab" data-bs-toggle="tab" href="#en" role="tab" aria-controls="en" aria-selected="false">EN</a>
+                <a class="nav-link" id="en-tab" data-bs-toggle="tab" href="#en" role="tab" aria-controls="en"
+                    aria-selected="false">EN</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="tm-tab" data-bs-toggle="tab" href="#tm" role="tab" aria-controls="tm" aria-selected="false">TM</a>
+                <a class="nav-link" id="tm-tab" data-bs-toggle="tab" href="#tm" role="tab" aria-controls="tm"
+                    aria-selected="false">TM</a>
             </li>
         </ul>
 
@@ -24,7 +27,8 @@
             <div class="tab-pane fade show active" id="ru" role="tabpanel" aria-labelledby="ru-tab">
                 <div class="mb-3">
                     <label for="title_ru" class="form-label">Title (RU)</label>
-                    <input type="text" name="title_ru" class="form-control @error('title_ru') is-invalid @enderror" value="{{ old('title_ru', $product->title_ru) }}">
+                    <input type="text" name="title_ru" class="form-control @error('title_ru') is-invalid @enderror"
+                        value="{{ old('title_ru', $product->title_ru) }}">
                     @error('title_ru')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -42,7 +46,8 @@
             <div class="tab-pane fade" id="en" role="tabpanel" aria-labelledby="en-tab">
                 <div class="mb-3">
                     <label for="title_en" class="form-label">Title (EN)</label>
-                    <input type="text" name="title_en" class="form-control @error('title_en') is-invalid @enderror" value="{{ old('title_en', $product->title_en) }}">
+                    <input type="text" name="title_en" class="form-control @error('title_en') is-invalid @enderror"
+                        value="{{ old('title_en', $product->title_en) }}">
                     @error('title_en')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -60,7 +65,8 @@
             <div class="tab-pane fade" id="tm" role="tabpanel" aria-labelledby="tm-tab">
                 <div class="mb-3">
                     <label for="title_tm" class="form-label">Title (TM)</label>
-                    <input type="text" name="title_tm" class="form-control @error('title_tm') is-invalid @enderror" value="{{ old('title_tm', $product->title_tm) }}">
+                    <input type="text" name="title_tm" class="form-control @error('title_tm') is-invalid @enderror"
+                        value="{{ old('title_tm', $product->title_tm) }}">
                     @error('title_tm')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -78,7 +84,8 @@
         <!-- Общие поля вне табов -->
         <div class="mb-3">
             <label for="img" class="form-label">Image URL</label>
-            <input type="text" name="img" class="form-control @error('img') is-invalid @enderror" value="{{ old('img', $product->img) }}">
+            <input type="text" name="img" class="form-control @error('img') is-invalid @enderror"
+                value="{{ old('img', $product->img) }}">
             @error('img')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -86,17 +93,22 @@
 
         <div class="mb-3">
             <label for="ordering" class="form-label">Ordering</label>
-            <input type="number" name="ordering" class="form-control @error('ordering') is-invalid @enderror" value="{{ old('ordering', $product->ordering) }}">
+            <input type="number" name="ordering" class="form-control @error('ordering') is-invalid @enderror"
+                value="{{ old('ordering', $product->ordering) }}">
             @error('ordering')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3 form-check">
-            <input type="checkbox" name="is_active" class="form-check-input" id="is_active" {{ old('is_active', $product->is_active) ? 'checked' : '' }}>
+            <input type="checkbox" name="is_active" class="form-check-input" id="is_active"
+                {{ old('is_active', $product->is_active) ? 'checked' : '' }}>
             <label class="form-check-label" for="is_active">Active</label>
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
+
+    <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+    <script src="{{ asset('js/tiny-custom.js') }}"></script>
 @endsection

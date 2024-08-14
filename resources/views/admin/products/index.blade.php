@@ -8,6 +8,8 @@
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>Created at</th>
+                <th>Modifed at</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -15,7 +17,9 @@
             @foreach ($products as $product)
                 <tr>
                     <td>{{ $product->id }}</td>
-                    <td>{{ $product->title_en }}</td>
+                    <td>{{ $product->title_ru }}</td>
+                    <td>{{ $product->created_at }}</td>
+                    <td>{{ $product->updated_at }}</td>
                     <td>
                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('products.destroy', $product->id) }}" method="POST" style="display:inline-block;">
