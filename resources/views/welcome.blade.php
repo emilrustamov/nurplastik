@@ -8,10 +8,7 @@
 
     <script src="/js/jquery.js"></script>
     <script src="/js/slick.js"></script>
-    @vite(['resources/scss/app.scss', 'resources/css/app.css', 'resources/js/app.js'])
-    <style>
-
-    </style>
+    @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -50,8 +47,8 @@
                     <div class="collapse navbar-collapse d-none d-md-flex justify-content-end">
                         <ul class="navbar-nav mb-2 mb-lg-0" style="flex-direction: row">
                             {{-- <li class="nav-item mx-2">
-                <a class="nav-link active" aria-current="page" href="#">Главная</a>
-              </li> --}}
+                                <a class="nav-link active" aria-current="page" href="#">Главная</a>
+                            </li> --}}
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="#aboutus">{{ __('translation.menu_about') }}</a>
                             </li>
@@ -65,16 +62,27 @@
                                 <a class="nav-link" href="#contacts">{{ __('translation.menu_contacts') }}</a>
                             </li>
                             <div class="dropdown d-flex">
-                                <a href="#"><img class="flag-icon" src="img/eng.svg" alt="English"></a>
+                                @php
+                                $currentLocale = app()->getLocale();
+                                $flagIcons = [
+                                'en' => 'img/eng.svg',
+                                'tm' => 'img/tkm.svg',
+                                'ru' => 'img/ru.svg'
+                                ];
+                                $currentFlag = $flagIcons[$currentLocale];
+                                @endphp
+
+                                <a href="#"><img class="flag-icon" src="{{ asset($currentFlag) }}"
+                                        alt="Current Language"></a>
                                 <div class="dropdown-content">
                                     <a href="{{ url('en') }}">
-                                        <img class="flag-icon" src="img/eng.svg" alt="English"> English
+                                        <img class="flag-icon" src="{{ asset('img/eng.svg') }}" alt="English"> English
                                     </a>
                                     <a href="{{ url('tm') }}">
-                                        <img class="flag-icon" src="img/tkm.svg" alt="Turkmen"> Türkmen
+                                        <img class="flag-icon" src="{{ asset('img/tkm.svg') }}" alt="Turkmen"> Türkmen
                                     </a>
                                     <a href="{{ url('ru') }}">
-                                        <img class="flag-icon" src="img/ru.svg" alt="Russian"> Русский
+                                        <img class="flag-icon" src="{{ asset('img/ru.svg') }}" alt="Russian"> Русский
                                     </a>
                                 </div>
                             </div>
@@ -304,13 +312,11 @@
 
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
@@ -464,7 +470,18 @@
         </div>
 
         <section class="container vertical-line px-4 py-4" id="contacts">
-            <form method="POST">
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+
+            @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+            @endif
+            <form method="POST" action="{{ route('contacts.submit') }}">
                 @csrf
                 <div class="row">
                     <div class="form-group col-xl-6 col-12 mb-4">
@@ -472,60 +489,55 @@
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                             id="form-name" aria-describedby="name" placeholder="Рустам">
                         @error('name')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-xl-6 col-12 mb-4">
                         <label for="form-surname" class="mb-3">{{ __('translation.surname') }}</label>
-                        <input type="text" name="surname"
-                            class="form-control @error('surname') is-invalid @enderror" id="form-surname"
-                            aria-describedby="surname" placeholder="Эмильев">
+                        <input type="text" name="surname" class="form-control @error('surname') is-invalid @enderror"
+                            id="form-surname" aria-describedby="surname" placeholder="Эмильев">
                         @error('surname')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-xl-6 col-12 mb-4">
                         <label for="form-phone" class="mb-3">{{ __('translation.phone') }}</label>
-                        <input type="phone" name="phone"
-                            class="form-control @error('phone') is-invalid @enderror" id="form-phone"
-                            placeholder="+99364927422">
+                        <input type="phone" name="phone" class="form-control @error('phone') is-invalid @enderror"
+                            id="form-phone" placeholder="+99364927422">
                         @error('phone')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-xl-6 col-12 mb-4">
                         <label for="form-email" class="mb-3">Email</label>
-                        <input type="email" name="email"
-                            class="form-control @error('email') is-invalid @enderror" id="form-email"
-                            placeholder="test@mail.ru">
+                        <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            id="form-email" placeholder="test@mail.ru">
                         @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-xl-12 col-12 mb-4">
                         <label for="form-message" class="mb-3">{{ __('translation.message') }}</label>
-                        <textarea rows="4" cols="50" name="message" class="form-control @error('message') is-invalid @enderror"
-                            id="form-message"></textarea>
+                        <textarea rows="4" cols="50" name="message"
+                            class="form-control @error('message') is-invalid @enderror" id="form-message"></textarea>
                         @error('message')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-xl-12 col-12">
-                        <button type="submit"
-                            class="submit-btn w-100 justify-content-center">{{ __('translation.send') }}
+                        <button type="submit" class="submit-btn w-100 justify-content-center">{{ __('translation.send')
+                            }}
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                 </div>
             </form>
-
-    </div>
-    </section>
-    <footer>
-        <section class="container vertical-line px-4 py-4">
         </section>
-        {{-- <script>
-      // Topup
+        <footer>
+            <section class="container vertical-line px-4 py-4">
+            </section>
+            {{-- <script>
+                // Topup
       let mybutton = document.getElementById("myBtn");
       window.onscroll = function () { scrollFunction() };
     
@@ -541,10 +553,10 @@
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
       }
-    </script> --}}
+            </script> --}}
 
-        {{-- <script>
-      window.onscroll = function () { moveArrows() };
+            {{-- <script>
+                window.onscroll = function () { moveArrows() };
 
 function moveArrows() {
     // Получаем текущую позицию прокрутки
@@ -568,9 +580,9 @@ function moveArrows() {
 }
 
 
-    </script> --}}
-    </footer>
-    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+            </script> --}}
+        </footer>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
     </div>
 </body>
 
