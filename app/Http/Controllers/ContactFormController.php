@@ -36,4 +36,14 @@ class ContactFormController extends Controller
             return redirect()->back()->with('error', 'Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте снова.');
         }
     }
+
+    public function index()
+{
+    // Получаем все заявки из базы данных
+    $submissions = ContactFormSubmission::all();
+
+    // Передаем данные во вьюшку
+    return view('admin.submissions', compact('submissions'));
+}
+
 }

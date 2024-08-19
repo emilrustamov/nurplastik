@@ -1,33 +1,32 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Admin\ProductController;
-use UniSharp\LaravelFilemanager\Lfm;
 use App\Http\Controllers\ContactFormController;
+use UniSharp\LaravelFilemanager\Lfm;
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+// Перенаправление на язык по умолчанию
 Route::get('/', function () {
-    return redirect('ru'); // Укажите язык по умолчанию
+    return redirect('ru');
 });
 
 Route::group(['prefix' => '{locale}'], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
-
+    Route::get('/', [ProductController::class, 'publicIndex'])->name('home');
+    Route::post('/contacts', [ContactFormController::class, 'submit'])->name('contacts.submit');
 });
 
-Route::resource('admin/products', ProductController::class);
-Route::post('/contacts', [ContactFormController::class, 'submit'])->name('contacts.submit');
-
+// Группа маршрутов для админки с middleware auth и is_admin
 Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::resource('admin/products', ProductController::class);
-    // другие маршруты админки
-});
+    Route::get('/admin/submissions', [ContactFormController::class, 'index'])->name('admin.submissions');
+    // Route::get('admin/{id}/edit', [HomeController::class, 'firstBlockEdit'])->name('firstblock.edit');
+    // Route::put('admins/{id}', [HomeController::class, 'updateFirstBlock'])->name('firstblock.update');
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-    \UniSharp\LaravelFilemanager\Lfm::routes();
+    // Маршруты Laravel File Manager
+    Route::group(['prefix' => 'laravel-filemanager'], function () {
+        Lfm::routes();
+    });
 });

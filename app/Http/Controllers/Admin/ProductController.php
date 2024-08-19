@@ -14,6 +14,13 @@ class ProductController extends Controller
         return view('admin.products.index', compact('products'));
     }
 
+    public function publicIndex()
+    {
+        $products = Product::orderBy('ordering')->get();
+        return view('welcome', compact('products'));
+    }
+
+
     public function create()
     {
         return view('admin.products.create');

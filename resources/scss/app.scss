@@ -1,3 +1,11 @@
+// webfonts
+// @import url('https://webfonts.bunny.net/css?family=Nunito');
+
+// Variables
+// @import 'variables';
+
+// Bootstrap
+// @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap';
 @import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '@fortawesome/fontawesome-free/scss/regular.scss';
@@ -5,6 +13,53 @@
 @import '@fortawesome/fontawesome-free/scss/brands.scss';
 @import 'slick-carousel/slick/slick.scss';
 @import 'slick-carousel/slick/slick-theme.scss';
-@import '/resources/scss/custom.scss';
-// @import '@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2';
-// @import '@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff';
+@import 'custom.scss';
+@font-face {
+    font-family: 'Manrope';
+    src: url('webfonts/Manrope-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('webfonts/Manrope-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('webfonts/Manrope-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('webfonts/Manrope-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('webfonts/Manrope-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('webfonts/Manrope-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('webfonts/Manrope-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+

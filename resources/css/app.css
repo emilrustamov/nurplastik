@@ -10,6 +10,7 @@
 
 body {
   font-size: 16px;
+  font-family: 'Manrope' !important;
 }
 
 .line {
@@ -63,6 +64,9 @@ h1 {
   font-size: 2.875em;
   font-weight: 800;
   text-transform: uppercase;
+  hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 h2 {
@@ -204,7 +208,16 @@ footer {
   background-color: var(--black);
   color: white;
 }
-
+.footer-links a{
+color: white;
+text-decoration:none;
+}
+.footer-links a:hover {
+  text-decoration:underline;
+}
+small, .small {
+  font-size: 0.5em;
+}
 .gradient-section {
   background: rgb(229, 160, 0);
   background: linear-gradient(90deg, rgba(229, 160, 0, 1) 0%, rgba(255, 241, 194, 1) 100%);
@@ -227,7 +240,7 @@ footer {
 }
 
 .modal-header {
-  border-bottom: 0;
+  border-bottom: 0 !important;
 }
 
 .form-control {
@@ -309,6 +322,7 @@ footer {
   body {
     font-size: 14px !important;
   }
+
   h1 {
     font-size: 1.5em;
   }
@@ -316,6 +330,7 @@ footer {
   h2 {
     font-size: 1.5em;
   }
+
   label {
     font-size: 1em;
   }
