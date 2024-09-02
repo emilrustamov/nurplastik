@@ -15,7 +15,6 @@ html {
 body {
   font-size: 16px;
   font-family: 'Manrope' !important;
-  cursor: none;
 }
 
 .vertical-line .row>div {
@@ -56,30 +55,30 @@ body {
 }
 
 
-.custom-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 28px;
-  height: 28px;
-  background-color: #0a2339;
-  border: 2px solid #ffba3e;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
-  z-index: 99999;
-}
+// .custom-cursor {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 28px;
+//   height: 28px;
+//   background-color: #0a2339;
+//   border: 2px solid #ffba3e;
+//   border-radius: 50%;
+//   pointer-events: none;
+//   transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+//   z-index: 99999;
+// }
 
-a,
-button {
-  cursor: none !important;
-}
+// a,
+// button {
+//   cursor: none !important;
+// }
 
-.custom-cursor.active {
-  transform: scale(1.5);
-  background-color: #ffba3e;
-  border-color: #0a2339;
-}
+// .custom-cursor.active {
+//   transform: scale(1.5);
+//   background-color: #ffba3e;
+//   border-color: #0a2339;
+// }
 
 
 
@@ -134,7 +133,7 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 800;
   color: var(--black);
 }
@@ -201,7 +200,6 @@ small {
   justify-content: center;
   color: white;
   font-weight: 600;
-  width: 80%;
 }
 
 .product-btn {
@@ -216,6 +214,7 @@ small {
   --bs-btn-padding-x: 0.75em;
   --bs-btn-padding-y: 0.375em;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  text-transform: uppercase;
 }
 
 .contact-btn:hover .fa-arrow-alt-circle-right {
@@ -296,7 +295,7 @@ footer {
 }
 
 .modal-dialog {
-  max-width: 50%;
+  max-width: 80%;
 }
 
 .modal-header {
@@ -334,6 +333,7 @@ footer {
   position: absolute;
   left: -43px;
   top: var(--arrow-top, 0px);
+  z-index: 99;
 }
 
 .arrow-r:after {
@@ -341,6 +341,7 @@ footer {
   position: absolute;
   right: -42px;
   top: 50px;
+  z-index: 99;
 }
 
 .dropdown {
@@ -373,7 +374,14 @@ footer {
 }
 
 .flag-icon {
-  width: 24px;
+  width: 75%;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+}
+.dropdown-content {
+  .flag-icon {
+    width: 24px;
+  }
 }
 
 .contact-btn {
@@ -432,7 +440,9 @@ footer {
   body {
     font-size: 14px !important;
   }
-
+  .arrow-l, .arrow-r {
+    display: none !important;
+  }
   h1,
   h2 {
     font-size: 1.5em;
@@ -510,10 +520,8 @@ footer {
   z-index: 9999;
   opacity: 1;
   transition: opacity 1s ease-out;
-  /* Плавный переход */
 }
 
-/* Прелоадер */
 .preloader {
   width: 8vmax;
   height: 8vmax;
@@ -545,6 +553,31 @@ footer {
   border: 0;
   border-right: 2px solid #ffffff;
   animation: none;
+}
+
+.center.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.img-wrapper1 {
+  flex: 1 1 auto;
+  margin: 0 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 400px;
+}
+
+.img-wrapper1 img {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 

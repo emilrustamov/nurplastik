@@ -44,7 +44,7 @@
             "name": "Nur Plastik",
             "url": "https://nur-plastik.com",
             "logo": "https://nur-plastik.com/img/logo.png",
-            "telephone": "+99312345678",
+            "telephone": "+99363413181",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Улица, дом",
@@ -80,16 +80,16 @@
         <main data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example">
             <section class="container vertical-line">
                 <div class="row">
-                    <div class="col-lg-7 col-xl-6 py-4 px-4 brd-right">
+                    <div class="col-lg-7 col-xl-6 py-4 px-4 brd-right d-flex align-items-start justify-content-center" style="flex-direction: column;">
                         <h1 class="mb-4">
                             {{ __('translation.h1') }}
                         </h1>
                         <p class="mb-4"> {{ __('translation.h1_d') }}</p>
-                        <button class="contact-btn"> <span>{{ __('translation.contact') }}</span><i
-                                class="far fa-arrow-alt-circle-right" style="z-index:10"></i></button>
+                       <a href="#contacts" style="text-decoration: none;"> <button class="contact-btn"> <span>{{ __('translation.contact') }}</span><i
+                                class="far fa-arrow-alt-circle-right" style="z-index:10"></i></button></a>
                     </div>
                     <div class="col-lg-5 col-xl-6 py-4 px-4 text-center">
-                        <img data-src="/storage/photos/1/another/rulony.png" class="img-fluid lazy sticky">
+                        <img data-src="/storage/photos/1/another/rulony.png" class="img-fluid lazy sticky w-100">
                     </div>
                 </div>
             </section>
@@ -99,8 +99,9 @@
 
             <!-- Следующий контент -->
             <section class="container vertical-line px-0" id="aboutus">
+
                 <h2 class="text-uppercase text-center m-0 py-4 px-4">{{__('translation.title_about')}}</h2>
-                <p class="m-0 px-4"> {!! nl2br(e(__('translation.about'))) !!}</p>
+                <div class="m-0 px-4"> {!! nl2br(e(__('translation.about'))) !!}</div>
 
                 <div class="center slider py-4">
                     <div class="img-wrapper1">
@@ -119,44 +120,16 @@
                         <img data-src="/storage/photos/1/slider/slider5.jpg" class="lazy">
                     </div>
                 </div>
+
             </section>
 
-            <style>
-                .center.slider {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    overflow: hidden;
-                }
-
-                .img-wrapper1 {
-                    flex: 1 1 auto;
-                    margin: 0 10px;
-                    /* Отступы между слайдами */
-                    overflow: hidden;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    max-height: 400px;
-                    /* Задаем максимальную высоту, чтобы изображения не выходили за рамки */
-                }
-
-                .img-wrapper1 img {
-                    width: auto;
-                    height: 100%;
-                    max-width: 100%;
-                    object-fit: contain;
-                    /* Изображение вписывается в контейнер, сохраняя пропорции */
-                    object-position: center;
-                }
-            </style>
             <div class="line">
             </div>
 
 
             <section class="container vertical-line" id="services">
                 <div class="arrow-r"></div>
-                <h2 class="text-uppercase m-0 py-4 px-4">{{ __('translation.title_service') }}</h2>
+                <h2 class="text-uppercase m-0 py-4 px-2">{{ __('translation.title_service') }}</h2>
                 <div class="row brd-top">
                     <div class="col-lg-6 brd-right">
                         @php
@@ -180,8 +153,8 @@
                         @endphp
 
                         <div class="row">
-                            @foreach($services as $service)
-                            <div class="col-xl-12 brd-bottom px-4 py-4" itemscope itemtype="https://schema.org/Service">
+                            @foreach($services as $index => $service)
+                            <div class="col-xl-12 {{ $index < count($services) - 1 ? 'brd-bottom' : '' }} px-4 py-4" itemscope itemtype="https://schema.org/Service">
                                 <div class="row">
                                     <div class="col-lg-3 mb-md-0 mb-3">
                                         <img data-src="{{ $service['image'] }}" alt="Service Icon" itemprop="image" class="lazy">
@@ -201,25 +174,26 @@
                             @endforeach
                         </div>
 
+
                     </div>
                     <div class="col-lg-6 py-4 px-4 text-center text-center">
                         <img data-src="/storage/photos/1/another/rulony2.png" class="w-100 lazy fluid-i sticky">
                     </div>
-                    <div class="col-xl-3 col-md-6 brd-right brd-top px-4 py-4 text-center">
-                        <div class="number" data-num="220">0<small>т</small></div>
-                        <div>Объемы экспортируемой продукции в месяц</div>
+                    <div class="col-xl-3 col-md-6 col-6 brd-right brd-top px-4 py-4 text-center">
+                        <div class="number" data-num="220">0<small>{{ __('translation.small_tons') }}</small></div>
+                        <div>{{ __('translation.num1') }}</div>
                     </div>
-                    <div class="col-xl-3 col-md-6 brd-right brd-top px-4 py-4 text-center">
-                        <div class="number" data-num="5">0<small>цветов</small></div>
-                        <div>Возможно нансение печати</div>
+                    <div class="col-xl-3 col-md-6 col-6 brd-right brd-top px-4 py-4 text-center">
+                        <div class="number" data-num="5">0<small>{{ __('translation.small_colors') }}</small></div>
+                        <div>{{ __('translation.num2') }}</div>
                     </div>
-                    <div class="col-xl-3 col-md-6 brd-right brd-top px-4 py-4 text-center">
-                        <div class="number" data-num="2000">0<small>кг</small></div>
-                        <div>МКР выдерживают широкий диапазон нагрузок</div>
+                    <div class="col-xl-3 col-md-6 col-6 brd-right brd-top px-4 py-4 text-center">
+                        <div class="number" data-num="2000">0<small>{{ __('translation.small_kg') }}</small></div>
+                        <div>{{ __('translation.num3') }}</div>
                     </div>
-                    <div class="col-xl-3 col-md-6 brd-right brd-top px-4 py-4 text-center">
+                    <div class="col-xl-3 col-md-6 col-6 brd-right brd-top px-4 py-4 text-center">
                         <div class="number" data-num="9">0</div>
-                        <div>Лет на рынке</div>
+                        <div>{{ __('translation.num4') }}</div>
                     </div>
                 </div>
             </section>
@@ -240,9 +214,9 @@
                     <div class="img-wrapper mb-2">
                         <img data-src="{{$product->img}}" itemprop="image" alt="{{ $product->{'title_' . app()->getLocale()} }}" class="lazy">
                     </div>
-                    <div class="justify-content-between d-flex align-items-center py-2">
+                    <div class="justify-content-between align-items-center py-2">
                         <h6 class="d-flex m-0" itemprop="name">{{ $product->{'title_' . app()->getLocale()} }}</h6>
-                        <button class="product-btn custom-btn d-flex" data-bs-toggle="modal"
+                        <button class="product-btn custom-btn d-flex mt-2" data-bs-toggle="modal"
                             data-bs-target="#productModal{{ $product->id }}"> {{ __('translation.more') }}</button>
                     </div>
                     <meta itemprop="description" content="{{ strip_tags($product->{'description_' . app()->getLocale()}) }}">
@@ -250,15 +224,13 @@
                 @endforeach
             </div>
 
-            <!-- Модальные окна вынесены за пределы слайдера -->
+          
             @foreach ($products as $product)
             <div class="modal fade" id="productModal{{ $product->id }}" tabindex="-1"
-                aria-labelledby="productModalLabel{{ $product->id }}" aria-hidden="true">
+                aria-labelledby="productModalLabel{{ $product->id }}" aria-hidden="true" style="align-content: center;">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="productModalLabel{{ $product->id }}">{{ $product->{'title_' .
-                        app()->getLocale()} }}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -266,20 +238,22 @@
                                 <div class="col-lg-6">
                                     <img data-src="{{$product->img}}" class="w-100 lazy fluid-i" alt="{{ $product->{'title_' . app()->getLocale()} }}">
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="pb-3 mb-2 product-modal-title">
-                                        <h4>
-                                            {{$product->{'title_' . app()->getLocale()} }}
-                                        </h4>
+                                <div class="col-lg-6 d-flex justify-content-between" style="flex-direction:column">
+                                    <div class="d-flex" style="flex-direction:column">
+                                        <div class="pb-3 pb-md-0 mb-2  product-modal-title">
+                                            <h4>
+                                                {{$product->{'title_' . app()->getLocale()} }}
+                                            </h4>
+                                        </div>
+                                        <p class="desc">
+                                            {!! $product->{'description_' . app()->getLocale()} !!}
+                                        </p>
                                     </div>
-                                    <p class="desc">
-                                        {!! $product->{'description_' . app()->getLocale()} !!}
-                                    </p>
-                                    <div class="d-flex" style="margin-top: 100px">
-                                        <button class="contact-btn me-4">{{__('translation.phone')}}<i
-                                                class="fas fa-phone ms-2"></i></button>
-                                        <button class="contact-btn">{{__('translation.leave_email')}}<i
-                                                class="fas fa-envelope ms-2"></i></button>
+                                    <div class="d-flex">
+                                        <a href="tel:+99363413181" style="text-decoration: none;"> <button class="contact-btn me-4"><span>{{__('translation.phone_btn')}}</span><i
+                                                    class="fas fa-phone ms-2"></i></button>
+                                            <a href="mailto:info@nur-plastik.com" style="text-decoration: none;"><button class="contact-btn"><span>{{__('translation.leave_email')}}</span><i
+                                                        class="fas fa-envelope ms-2"></i></button></a>
                                     </div>
                                 </div>
                             </div>
@@ -307,9 +281,9 @@
                         </p>
                     </div>
                     <div class="col-xl-4 col-md-5">
-                        <div class="d-flex justify-content-md-end justify-content-center">
-                            <button class="catalog-btn">{{ __('translation.catalog') }}<i
-                                    class="fas fa-file-download"></i></button>
+                        <div class="d-flex justify-content-md-end justify-content-start">
+                            <a href="catalog.pdf" style="text-decoration: none;"><button class="catalog-btn" >{{ __('translation.catalog') }}<i
+                                    class="fas fa-file-download"></i></button></a>
                         </div>
                     </div>
             </section>
@@ -322,113 +296,48 @@
 
         <section class="container vertical-line">
             <div class="arrow-r"></div>
-            <h2 class="text-uppercase m-0 py-4 px-4">{{__('translation.title_etapy')}}</h2>
+            <h2 class="text-uppercase m-0 py-4 px-2">{{__('translation.title_etapy')}}</h2>
             <div class="row brd-top">
                 <div class="col-lg-6 py-4 px-4 text-center text-center">
                     <img data-src="/storage/photos/1/another/rulony-right.jpg" class="w-100 lazy fluid-i sticky">
                 </div>
                 <div class="col-lg-6 brd-right">
+                    @php
+                    $steps = [
+                    ['number' => '01', 'title' => __('translation.sqr-num-1-title'), 'description' => __('translation.sqr-num-1-description')],
+                    ['number' => '02', 'title' => __('translation.sqr-num-2-title'), 'description' => __('translation.sqr-num-2-description')],
+                    ['number' => '03', 'title' => __('translation.sqr-num-3-title'), 'description' => __('translation.sqr-num-3-description')],
+                    ['number' => '04', 'title' => __('translation.sqr-num-4-title'), 'description' => __('translation.sqr-num-4-description')],
+                    ['number' => '05', 'title' => __('translation.sqr-num-5-title'), 'description' => __('translation.sqr-num-5-description')],
+                    ];
+                    @endphp
+
+
                     <div class="row">
-                        <div class="col-xl-12 brd-bottom brd-left px-4 py-4">
+                        @foreach($steps as $index => $step)
+                        <div class="col-xl-12 brd-left px-4 py-4 {{ $index < count($steps) - 1 ? 'brd-bottom' : '' }}">
                             <div class="row">
                                 <div class="col-xl-3 col-lg-2 col-3">
                                     <div class="sqr-num">
                                         <div></div>
-                                        01
+                                        {{ $step['number'] }}
                                     </div>
                                 </div>
                                 <div class="col-xl-9 col-lg-10 col-9">
                                     <div class="row">
                                         <h3 class="col-lg-12">
-                                            Подготовка сырья
+                                            {{ $step['title'] }}
                                         </h3>
                                         <p class="col-lg-12 m-0">
-                                            Изначально полипропилен, кальцит (мастербатч) и красители загружаются в бункеры для подготовки к производству. Это позволяет предприятию оперативно реагировать на запросы клиентов и изготавливать продукцию, ориентируясь на рыночный спрос
+                                            {{ $step['description'] }}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-xl-12 brd-bottom brd-left px-4 py-4">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-2 col-3">
-                                    <div class="sqr-num">
-                                        02
-                                    </div>
-                                </div>
-                                <div class="col-xl-9 col-lg-10 col-9">
-                                    <div class="row">
-                                        <h3 class="col-lg-12">
-                                            Экструзия
-                                        </h3>
-                                        <p class="col-lg-12 m-0">
-                                            Загруженное сырье расплавляется в экструдере и формируется в пленочный стержень
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-12 brd-left px-4 py-4">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-2 col-3">
-                                    <div class="sqr-num">
-                                        03
-                                    </div>
-                                </div>
-                                <div class="col-xl-9 col-lg-10 col-9">
-                                    <div class="row">
-                                        <h3 class="col-lg-12">
-                                            Ткачество
-
-                                        </h3>
-                                        <p class="col-lg-12 m-0">
-                                            Полученные стержни обрабатываются на ткацких станках, где формируются мешочные ткани различных размеров
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-12 brd-left px-4 py-4">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-2 col-3">
-                                    <div class="sqr-num">
-                                        04
-                                    </div>
-                                </div>
-                                <div class="col-xl-9 col-lg-10 col-9">
-                                    <div class="row">
-                                        <h3 class="col-lg-12">
-                                            Шитье мешков
-                                        </h3>
-                                        <p class="col-lg-12 m-0">
-                                            Ткани переносятся на мешкозашивочные машины, где создаются готовые мешки различной конфигурации и размеров
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-12 brd-left px-4 py-4">
-                            <div class="row">
-                                <div class="col-xl-3 col-lg-2 col-3">
-                                    <div class="sqr-num">
-                                        05
-                                    </div>
-                                </div>
-                                <div class="col-xl-9 col-lg-10 col-9">
-                                    <div class="row">
-                                        <h3 class="col-lg-12">
-                                            Контроль качества
-                                        </h3>
-                                        <p class="col-lg-12 m-0">
-                                            На завершающем этапе продукция проходит тщательное тестирование в заводской лаборатории для гарантии высокого стандарта качества
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+
                 </div>
             </div>
         </section>
@@ -464,7 +373,7 @@
                     <div class="form-group col-lg-6 col-12 mb-4">
                         <label for="form-name" class="mb-3">{{ __('translation.name') }}</label>
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                            id="form-name" aria-describedby="name" placeholder="Рустам">
+                            id="form-name" aria-describedby="name" placeholder="John">
                         @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -472,7 +381,7 @@
                     <div class="form-group col-lg-6 col-12 mb-4">
                         <label for="form-surname" class="mb-3">{{ __('translation.surname') }}</label>
                         <input type="text" name="surname" class="form-control @error('surname') is-invalid @enderror"
-                            id="form-surname" aria-describedby="surname" placeholder="Эмильев">
+                            id="form-surname" aria-describedby="surname" placeholder="Doe">
                         @error('surname')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -480,7 +389,7 @@
                     <div class="form-group col-lg-6 col-12 mb-4">
                         <label for="form-phone" class="mb-3">{{ __('translation.phone') }}</label>
                         <input type="phone" name="phone" class="form-control @error('phone') is-invalid @enderror"
-                            id="form-phone" placeholder="+99364927422">
+                            id="form-phone" placeholder="+1234568789">
                         @error('phone')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -501,8 +410,8 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-xl-12 col-12">
-                        <button type="submit" class="submit-btn w-100 justify-content-center">{{ __('translation.send')
+                    <div class="form-group col-xl-12 col-12 d-flex justify-content-center">
+                        <button type="submit" class="submit-btn justify-content-center">{{ __('translation.send')
                             }}
                             <i class="fas fa-paper-plane"></i>
                         </button>
@@ -517,10 +426,27 @@
 
 
 
-    <style>
+    <script>
+        let mybutton = document.getElementById("myBtn");
 
-    </style>
-    <div class="custom-cursor"></div>
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+    <!-- <div class="custom-cursor"></div> -->
 
 </body>
 

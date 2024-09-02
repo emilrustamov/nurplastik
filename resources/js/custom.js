@@ -1,6 +1,3 @@
-
-
-
 // Topup
 
 let mybutton = document.getElementById("myBtn");
@@ -22,7 +19,7 @@ function topFunction() {
 
 
 
-
+//lazyload
 const lazyImages = document.querySelectorAll('img.lazy');
 
 const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -142,21 +139,21 @@ document.querySelectorAll('.vertical-line .row > div').forEach(function (div) {
 
 //cursor
 
-const cursor = document.querySelector('.custom-cursor');
+// const cursor = document.querySelector('.custom-cursor');
 
-document.addEventListener('mousemove', function (e) {
-  cursor.style.transform = `translate3d(${e.clientX - 10}px, ${e.clientY - 10}px, 0)`;
-});
+// document.addEventListener('mousemove', function (e) {
+//   cursor.style.transform = `translate3d(${e.clientX - 5}px, ${e.clientY - 5}px, 0)`;
+// });
 
-document.querySelectorAll('a, button').forEach(function (element) {
-  element.addEventListener('mouseenter', function () {
-    cursor.classList.add('active');
-  });
+// document.querySelectorAll('a, button').forEach(function (element) {
+//   element.addEventListener('mouseenter', function () {
+//     cursor.classList.add('active');
+//   });
 
-  element.addEventListener('mouseleave', function () {
-    cursor.classList.remove('active');
-  });
-});
+//   element.addEventListener('mouseleave', function () {
+//     cursor.classList.remove('active');
+//   });
+// });
 
 
 // Slick gallery

@@ -20,21 +20,21 @@
             <div class="col-md-4 text-md-end col-6 order-1 order-md-3" itemscope itemtype="https://schema.org/Organization">
                 <ul class="list-unstyled  footer-links">
                     <li itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
-                        <a href="tel:+99312345678">
+                        <a href="tel:+99363413181">
                             <i class="fas fa-phone-alt"></i>
-                            <span itemprop="telephone">+993 (12) 345-678</span>
+                            <span itemprop="telephone">+993(63)-41-31-81</span>
                         </a>
                     </li>
                     <li itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
-                        <a href="mailto:info@example.com">
+                        <a href="mailto:info@nur-plastik.com">
                             <i class="fas fa-envelope"></i>
-                            <span itemprop="email">info@example.com</span>
+                            <span itemprop="email">info@nur-plastik.com</span>
                         </a>
                     </li>
                     <li itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span itemprop="addressLocality">г. Ашхабад</span>,
-                        <span itemprop="addressCountry">Туркменистан</span>
+                        <span itemprop="addressLocality">{{ __('translation.adres_1') }}</span>,
+                        <span itemprop="addressCountry">{{ __('translation.adres_2') }}</span>
                     </li>
                     <li>
                         <a href="https://wa.me/99363413181" target="_blank">

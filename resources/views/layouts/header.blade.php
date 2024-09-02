@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="collapse navbar-collapse d-none d-md-flex justify-content-end" itemscope itemtype="https://schema.org/SiteNavigationElement">
-                <ul class="navbar-nav mb-2 mb-lg-0" style="flex-direction: row">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" style="flex-direction: row">
                     <li class="nav-item mx-2" itemprop="url">
                         <a class="nav-link" href="#aboutus">{{ __('translation.menu_about') }}</a>
                     </li>
@@ -39,7 +39,7 @@
                     <li class="nav-item mx-2" itemprop="url">
                         <a class="nav-link" href="#contacts">{{ __('translation.menu_contacts') }}</a>
                     </li>
-                    <div class="dropdown d-flex">
+                    <div class="dropdown d-flex ms-3">
                         @php
                         $currentLocale = app()->getLocale();
                         $flagIcons = [
