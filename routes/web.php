@@ -23,15 +23,17 @@ Route::group(['prefix' => '{locale}'], function () {
 
 Route::middleware(['auth', 'is_admin'])->group(function () {
     Route::resource('admin/users', UserController::class);
-  Route::get('admin/users', [UserController::class, 'index'])->name('admin.users.index');
+  Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
     Route::post('admin/users', [UserController::class, 'store'])->name('admin.users.store');
     Route::get('admin/users/{user}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
     Route::put('admin/users/{user}', [UserController::class, 'update'])->name('admin.users.update');
     Route::delete('admin/users/{user}', [UserController::class, 'destroy'])->name('admin.users.destroy');
+    
 
     Route::resource('admin/products', ProductController::class);
     Route::get('/admin/submissions', [ContactFormController::class, 'index'])->name('admin.submissions');
+    Route::delete('/admin/submissions/{id}', [ContactFormController::class, 'destroy'])->name('admin.submissions.destroy');
     Route::resource('admin/text-blocks', TextBlockController::class)->except(['create', 'store', 'destroy']);
    
 

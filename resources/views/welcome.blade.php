@@ -38,7 +38,7 @@
         content="Nur Plastik - ведущий производитель полипропиленовых изделий в Туркменистане. Мы предлагаем качественные и надежные продукты.">
     <meta name="twitter:image" content="https://nur-plastik.com/img/logo.png">
     <meta name="twitter:url" content="https://nur-plastik.com/ru">
-
+    {!! NoCaptcha::renderJs() !!}
     <!-- JSON-LD разметка для организации -->
     <script type="application/ld+json">
         {
@@ -94,7 +94,7 @@
                                     style="z-index:10"></i></button></a>
                     </div>
                     <div class="col-lg-5 col-xl-6 py-4 px-4 text-center">
-                        <img data-src="/storage/photos/1/another/rulony.png" class="img-fluid lazy sticky w-100">
+                        <img data-src="/storage/photos/1/gallery/rulon-main.png" class="img-fluid lazy sticky w-100">
                     </div>
                 </div>
             </section>
@@ -105,35 +105,41 @@
             <!-- Следующий контент -->
             @php
             $aboutus = \App\Models\TextBlock::where('key', 'aboutus')->first();
-        @endphp
-        
-        <section class="container vertical-line px-0" id="aboutus">
-            <h2 class="text-uppercase text-center m-0 py-4 px-4">
-                {!! nl2br(e($aboutus->content[app()->getLocale()]['title'] ?? '')) !!}
-            </h2>
-            <div class="m-0 px-4">
-                {!! nl2br(e($aboutus->content[app()->getLocale()]['text'] ?? '')) !!}
-            </div>
-        
-            <div class="center slider py-4">
-                <div class="img-wrapper1">
-                    <img data-src="/storage/photos/1/slider/slider1.jpg" class="lazy">
+            @endphp
+
+            <section class="container vertical-line px-0" id="aboutus">
+                <h2 class="text-uppercase text-center m-0 py-4 px-4">
+                    {!! nl2br(e($aboutus->content[app()->getLocale()]['title'] ?? '')) !!}
+                </h2>
+                <div class="m-0 px-4">
+                    {!! nl2br(e($aboutus->content[app()->getLocale()]['text'] ?? '')) !!}
                 </div>
-                <div class="img-wrapper1">
-                    <img data-src="/storage/photos/1/slider/slider2.jpg" class="lazy">
+
+                <div class="center slider py-4">
+                    <div class="img-wrapper1">
+                        <img data-src="/storage/photos/1/gallery/1.jpg" class="lazy">
+                    </div>
+                    <div class="img-wrapper1">
+                        <img data-src="/storage/photos/1/gallery/2.jpg" class="lazy">
+                    </div>
+                    <div class="img-wrapper1">
+                        <img data-src="/storage/photos/1/gallery/3.jpg" class="lazy">
+                    </div>
+                    <div class="img-wrapper1">
+                        <img data-src="/storage/photos/1/gallery/4.jpg" class="lazy">
+                    </div>
+                    <div class="img-wrapper1">
+                        <img data-src="/storage/photos/1/gallery/5.jpg" class="lazy">
+                    </div>
+                    <div class="img-wrapper1">
+                        <img data-src="/storage/photos/1/gallery/6.jpg" class="lazy">
+                    </div>
+                    <div class="img-wrapper1">
+                        <img data-src="/storage/photos/1/gallery/7.jpg" class="lazy">
+                    </div>
                 </div>
-                <div class="img-wrapper1">
-                    <img data-src="/storage/photos/1/slider/slider3.jpg" class="lazy">
-                </div>
-                <div class="img-wrapper1">
-                    <img data-src="/storage/photos/1/slider/slider4.jpg" class="lazy">
-                </div>
-                <div class="img-wrapper1">
-                    <img data-src="/storage/photos/1/slider/slider5.jpg" class="lazy">
-                </div>
-            </div>
-        </section>
-        
+            </section>
+
 
 
 
@@ -147,53 +153,53 @@
                 <div class="row brd-top">
                     <div class="col-lg-6 brd-right">
                         @php
-                            $services = [
-                                [
-                                    'image' => 'img/icon-1.png',
-                                    'title' => __('translation.service1_t'),
-                                    'description' => __('translation.service1_d'),
-                                ],
-                                [
-                                    'image' => 'img/icon-2.png',
-                                    'title' => __('translation.service2_t'),
-                                    'description' => __('translation.service2_d'),
-                                ],
-                                [
-                                    'image' => 'img/icon-3.png',
-                                    'title' => __('translation.service3_t'),
-                                    'description' => __('translation.service3_d'),
-                                ],
-                            ];
+                        $services = [
+                        [
+                        'image' => 'img/icon-1.png',
+                        'title' => __('translation.service1_t'),
+                        'description' => __('translation.service1_d'),
+                        ],
+                        [
+                        'image' => 'img/icon-2.png',
+                        'title' => __('translation.service2_t'),
+                        'description' => __('translation.service2_d'),
+                        ],
+                        [
+                        'image' => 'img/icon-3.png',
+                        'title' => __('translation.service3_t'),
+                        'description' => __('translation.service3_d'),
+                        ],
+                        ];
                         @endphp
 
                         <div class="row">
                             @foreach ($services as $index => $service)
-                                <div class="col-xl-12 {{ $index < count($services) - 1 ? 'brd-bottom' : '' }} px-4 py-4"
-                                    itemscope itemtype="https://schema.org/Service">
-                                    <div class="row">
-                                        <div class="col-lg-3 mb-md-0 mb-3">
-                                            <img data-src="{{ $service['image'] }}" alt="Service Icon" itemprop="image"
-                                                class="lazy">
-                                        </div>
-                                        <div class="col-lg-9">
-                                            <div class="row">
-                                                <h3 class="col-lg-12" itemprop="name">
-                                                    {{ $service['title'] }}
-                                                </h3>
-                                                <p class="col-lg-12 m-0" itemprop="description">
-                                                    {{ $service['description'] }}
-                                                </p>
-                                            </div>
+                            <div class="col-xl-12 {{ $index < count($services) - 1 ? 'brd-bottom' : '' }} px-4 py-4"
+                                itemscope itemtype="https://schema.org/Service">
+                                <div class="row">
+                                    <div class="col-lg-3 mb-md-0 mb-3">
+                                        <img data-src="{{ $service['image'] }}" alt="Service Icon" itemprop="image"
+                                            class="lazy">
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="row">
+                                            <h3 class="col-lg-12" itemprop="name">
+                                                {{ $service['title'] }}
+                                            </h3>
+                                            <p class="col-lg-12 m-0" itemprop="description">
+                                                {{ $service['description'] }}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
                         </div>
 
 
                     </div>
                     <div class="col-lg-6 py-4 px-4 text-center text-center">
-                        <img data-src="/storage/photos/1/another/rulony2.png" class="w-100 lazy fluid-i sticky">
+                        <img data-src="storage/photos/1/gallery/rulon-about.png" class="w-100 lazy fluid-i sticky">
                     </div>
                     <div class="col-xl-3 col-md-6 col-6 brd-right brd-top px-4 py-4 text-center">
                         <div class="number" data-num="220">0<small>{{ __('translation.small_tons') }}</small></div>
@@ -226,68 +232,68 @@
             <h2 class="text-uppercase text-center m-0 py-4 px-4">{{ __('translation.title_products') }}</h2>
             <div class="products slider px-0">
                 @foreach ($products as $product)
-                    <div itemscope itemtype="https://schema.org/Product">
-                        <div class="img-wrapper mb-2">
-                            <img data-src="{{ $product->img }}" itemprop="image"
-                                alt="{{ $product->{'title_' . app()->getLocale()} }}" class="lazy">
-                        </div>
-                        <div class="justify-content-between align-items-center py-2">
-                            <h6 class="d-flex m-0" itemprop="name">{{ $product->{'title_' . app()->getLocale()} }}
-                            </h6>
-                            <button class="product-btn custom-btn d-flex mt-2" data-bs-toggle="modal"
-                                data-bs-target="#productModal{{ $product->id }}">
-                                {{ __('translation.more') }}</button>
-                        </div>
-                        <meta itemprop="description"
-                            content="{{ strip_tags($product->{'description_' . app()->getLocale()}) }}">
+                <div itemscope itemtype="https://schema.org/Product">
+                    <div class="img-wrapper mb-2">
+                        <img data-src="{{ $product->img }}" itemprop="image"
+                            alt="{{ $product->{'title_' . app()->getLocale()} }}" class="lazy">
                     </div>
+                    <div class="justify-content-between align-items-center py-2">
+                        <h6 class="d-flex m-0" itemprop="name">{{ $product->{'title_' . app()->getLocale()} }}
+                        </h6>
+                        <button class="product-btn custom-btn d-flex mt-2" data-bs-toggle="modal"
+                            data-bs-target="#productModal{{ $product->id }}">
+                            {{ __('translation.more') }}</button>
+                    </div>
+                    <meta itemprop="description"
+                        content="{{ strip_tags($product->{'description_' . app()->getLocale()}) }}">
+                </div>
                 @endforeach
             </div>
 
 
             @foreach ($products as $product)
-                <div class="modal fade" id="productModal{{ $product->id }}" tabindex="-1"
-                    aria-labelledby="productModalLabel{{ $product->id }}" aria-hidden="true"
-                    style="align-content: center;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <img data-src="{{ $product->img }}" class="w-100 lazy fluid-i"
-                                            alt="{{ $product->{'title_' . app()->getLocale()} }}">
+            <div class="modal fade" id="productModal{{ $product->id }}" tabindex="-1"
+                aria-labelledby="productModalLabel{{ $product->id }}" aria-hidden="true"
+                style="align-content: center;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <img data-src="{{ $product->img }}" class="w-100 lazy fluid-i"
+                                        alt="{{ $product->{'title_' . app()->getLocale()} }}">
+                                </div>
+                                <div class="col-lg-6 d-flex justify-content-between"
+                                    style="flex-direction:column">
+                                    <div class="d-flex" style="flex-direction:column">
+                                        <div class="pb-3 pb-md-0 mb-2  product-modal-title">
+                                            <h4>
+                                                {{ $product->{'title_' . app()->getLocale()} }}
+                                            </h4>
+                                        </div>
+                                        <p class="desc">
+                                            {!! $product->{'description_' . app()->getLocale()} !!}
+                                        </p>
                                     </div>
-                                    <div class="col-lg-6 d-flex justify-content-between"
-                                        style="flex-direction:column">
-                                        <div class="d-flex" style="flex-direction:column">
-                                            <div class="pb-3 pb-md-0 mb-2  product-modal-title">
-                                                <h4>
-                                                    {{ $product->{'title_' . app()->getLocale()} }}
-                                                </h4>
-                                            </div>
-                                            <p class="desc">
-                                                {!! $product->{'description_' . app()->getLocale()} !!}
-                                            </p>
-                                        </div>
-                                        <div class="d-flex">
-                                            <a href="tel:+99363413181" style="text-decoration: none;"> <button
-                                                    class="contact-btn me-4"><span>{{ __('translation.phone_btn') }}</span><i
-                                                        class="fas fa-phone ms-2"></i></button>
-                                                <a href="mailto:info@nur-plastik.com"
-                                                    style="text-decoration: none;"><button
-                                                        class="contact-btn"><span>{{ __('translation.leave_email') }}</span><i
-                                                            class="fas fa-envelope ms-2"></i></button></a>
-                                        </div>
+                                    <div class="d-flex">
+                                        <a href="tel:+99363413181" style="text-decoration: none;"> <button
+                                                class="contact-btn me-4"><span>{{ __('translation.phone_btn') }}</span><i
+                                                    class="fas fa-phone ms-2"></i></button>
+                                            <a href="mailto:info@nur-plastik.com"
+                                                style="text-decoration: none;"><button
+                                                    class="contact-btn"><span>{{ __('translation.leave_email') }}</span><i
+                                                        class="fas fa-envelope ms-2"></i></button></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </section>
 
@@ -327,63 +333,63 @@
             <h2 class="text-uppercase m-0 py-4 px-2">{{ __('translation.title_etapy') }}</h2>
             <div class="row brd-top">
                 <div class="col-lg-6 py-4 px-4 text-center text-center">
-                    <img data-src="/storage/photos/1/another/rulony-right.jpg" class="w-100 lazy fluid-i sticky">
+                    <img data-src="/storage/photos/1/gallery/rulon-etapy.png" class="w-100 lazy fluid-i sticky">
                 </div>
                 <div class="col-lg-6 brd-right">
                     @php
-                        $steps = [
-                            [
-                                'number' => '01',
-                                'title' => __('translation.sqr-num-1-title'),
-                                'description' => __('translation.sqr-num-1-description'),
-                            ],
-                            [
-                                'number' => '02',
-                                'title' => __('translation.sqr-num-2-title'),
-                                'description' => __('translation.sqr-num-2-description'),
-                            ],
-                            [
-                                'number' => '03',
-                                'title' => __('translation.sqr-num-3-title'),
-                                'description' => __('translation.sqr-num-3-description'),
-                            ],
-                            [
-                                'number' => '04',
-                                'title' => __('translation.sqr-num-4-title'),
-                                'description' => __('translation.sqr-num-4-description'),
-                            ],
-                            [
-                                'number' => '05',
-                                'title' => __('translation.sqr-num-5-title'),
-                                'description' => __('translation.sqr-num-5-description'),
-                            ],
-                        ];
+                    $steps = [
+                    [
+                    'number' => '01',
+                    'title' => __('translation.sqr-num-1-title'),
+                    'description' => __('translation.sqr-num-1-description'),
+                    ],
+                    [
+                    'number' => '02',
+                    'title' => __('translation.sqr-num-2-title'),
+                    'description' => __('translation.sqr-num-2-description'),
+                    ],
+                    [
+                    'number' => '03',
+                    'title' => __('translation.sqr-num-3-title'),
+                    'description' => __('translation.sqr-num-3-description'),
+                    ],
+                    [
+                    'number' => '04',
+                    'title' => __('translation.sqr-num-4-title'),
+                    'description' => __('translation.sqr-num-4-description'),
+                    ],
+                    [
+                    'number' => '05',
+                    'title' => __('translation.sqr-num-5-title'),
+                    'description' => __('translation.sqr-num-5-description'),
+                    ],
+                    ];
                     @endphp
 
 
                     <div class="row">
                         @foreach ($steps as $index => $step)
-                            <div
-                                class="col-xl-12 brd-left px-4 py-4 {{ $index < count($steps) - 1 ? 'brd-bottom' : '' }}">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-2 col-3">
-                                        <div class="sqr-num">
-                                            <div></div>
-                                            {{ $step['number'] }}
-                                        </div>
+                        <div
+                            class="col-xl-12 brd-left px-4 py-4 {{ $index < count($steps) - 1 ? 'brd-bottom' : '' }}">
+                            <div class="row">
+                                <div class="col-xl-3 col-lg-2 col-3">
+                                    <div class="sqr-num">
+                                        <div></div>
+                                        {{ $step['number'] }}
                                     </div>
-                                    <div class="col-xl-9 col-lg-10 col-9">
-                                        <div class="row">
-                                            <h3 class="col-lg-12">
-                                                {{ $step['title'] }}
-                                            </h3>
-                                            <p class="col-lg-12 m-0">
-                                                {{ $step['description'] }}
-                                            </p>
-                                        </div>
+                                </div>
+                                <div class="col-xl-9 col-lg-10 col-9">
+                                    <div class="row">
+                                        <h3 class="col-lg-12">
+                                            {{ $step['title'] }}
+                                        </h3>
+                                        <p class="col-lg-12 m-0">
+                                            {{ $step['description'] }}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         @endforeach
                     </div>
 
@@ -405,17 +411,17 @@
 
         <section class="container vertical-line px-4 py-4" id="contacts">
             @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
             @endif
 
             @if (session('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
             @endif
-            <form method="POST" action="{{ route('contacts.submit', ['locale' => app()->getLocale()]) }}">
+            <form method="POST" action="{{ route('contacts.submit', ['locale' => app()->getLocale()]) }}" id="contact-form">
 
                 @csrf
                 <div class="row">
@@ -424,7 +430,7 @@
                         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
                             id="form-name" aria-describedby="name" placeholder="John">
                         @error('name')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-lg-6 col-12 mb-4">
@@ -433,25 +439,26 @@
                             class="form-control @error('surname') is-invalid @enderror" id="form-surname"
                             aria-describedby="surname" placeholder="Doe">
                         @error('surname')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <input type="text" name="extra_field" style="display:none">
                     <div class="form-group col-lg-6 col-12 mb-4">
                         <label for="form-phone" class="mb-3">{{ __('translation.phone') }}</label>
                         <input type="phone" name="phone"
                             class="form-control @error('phone') is-invalid @enderror" id="form-phone"
                             placeholder="+1234568789">
                         @error('phone')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-lg-6 col-12 mb-4">
                         <label for="form-email" class="mb-3">Email</label>
                         <input type="email" name="email"
                             class="form-control @error('email') is-invalid @enderror" id="form-email"
-                            placeholder="test@mail.ru">
+                            placeholder="test@mail.ru" required>
                         @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-xl-12 col-12 mb-4">
@@ -459,12 +466,19 @@
                         <textarea rows="4" cols="50" name="message" class="form-control @error('message') is-invalid @enderror"
                             id="form-message"></textarea>
                         @error('message')
-                            <div class="invalid-feedback">{{ $message }}</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group col-xl-12 col-12 mb-4">
+                        {!! NoCaptcha::display() !!}
+                        @error('g-recaptcha-response')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
                     <div class="form-group col-xl-12 col-12 d-flex justify-content-center">
-                        <button type="submit" class="submit-btn justify-content-center">{{ __('translation.send') }}
-                            <i class="fas fa-paper-plane"></i>
+                        <button type="submit" id="submit-btn" class="submit-btn justify-content-center">
+                            {{ __('translation.send') }} <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                 </div>
@@ -475,6 +489,22 @@
         <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
     </div>
 
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы до проверки reCAPTCHA
+
+            // Проверяем, прошел ли пользователь капчу
+            var response = grecaptcha.getResponse();
+
+            if (response.length === 0) {
+                // Если капча не пройдена, выводим alert
+                alert('Пожалуйста, подтвердите, что вы не робот, пройдя проверку reCAPTCHA.');
+            } else {
+                // Если капча пройдена, отправляем форму
+                document.getElementById('contact-form').submit();
+            }
+        });
+    </script>
 
 
     <script>

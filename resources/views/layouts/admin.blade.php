@@ -26,6 +26,7 @@
                     <a class="nav-link" href="{{ url('/') }}">На сайт</a>
                         <a class="nav-link" href="{{ route('products.index') }}">Товары</a>
                         <a class="nav-link" href="{{ route('admin.submissions') }}">Заявки</a>
+                        <a class="nav-link" href="{{ route('admin.users.index') }}">Пользователи</a>
                     </li>
                     <!-- Другие ссылки навигации можно добавить здесь -->
                 </ul>
