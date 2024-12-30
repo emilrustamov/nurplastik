@@ -5,15 +5,14 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TextBlockController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\WelcomeController;
 use UniSharp\LaravelFilemanager\Lfm;
 use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
 // Перенаправление на язык по умолчанию
-Route::get('/', function () {
-    return redirect('ru');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::group(['prefix' => '{locale}'], function () {
     Route::get('/', [ProductController::class, 'publicIndex'])->name('home');

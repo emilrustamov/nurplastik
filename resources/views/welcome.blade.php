@@ -94,7 +94,7 @@
                                     style="z-index:10"></i></button></a>
                     </div>
                     <div class="col-lg-5 col-xl-6 py-4 px-4 text-center">
-                        <img data-src="/storage/photos/1/gallery/rulon-main.png" class="img-fluid lazy sticky w-100">
+                        <img data-src="img/rulon-main.png" class="img-fluid lazy sticky w-100">
                     </div>
                 </div>
             </section>
@@ -117,25 +117,25 @@
 
                 <div class="center slider py-4">
                     <div class="img-wrapper1">
-                        <img data-src="/storage/photos/1/gallery/1.jpg" class="lazy">
+                        <img data-src="img/gallery/1.jpg" class="lazy">
                     </div>
                     <div class="img-wrapper1">
-                        <img data-src="/storage/photos/1/gallery/2.jpg" class="lazy">
+                        <img data-src="img/gallery/2.jpg" class="lazy">
                     </div>
                     <div class="img-wrapper1">
-                        <img data-src="/storage/photos/1/gallery/3.jpg" class="lazy">
+                        <img data-src="img/gallery/3.jpg" class="lazy">
                     </div>
                     <div class="img-wrapper1">
-                        <img data-src="/storage/photos/1/gallery/4.jpg" class="lazy">
+                        <img data-src="img/gallery/4.jpg" class="lazy">
                     </div>
                     <div class="img-wrapper1">
-                        <img data-src="/storage/photos/1/gallery/5.jpg" class="lazy">
+                        <img data-src="img/gallery/5.jpg" class="lazy">
                     </div>
                     <div class="img-wrapper1">
-                        <img data-src="/storage/photos/1/gallery/6.jpg" class="lazy">
+                        <img data-src="img/gallery/6.jpg" class="lazy">
                     </div>
                     <div class="img-wrapper1">
-                        <img data-src="/storage/photos/1/gallery/7.jpg" class="lazy">
+                        <img data-src="img/gallery/7.jpg" class="lazy">
                     </div>
                 </div>
             </section>
@@ -234,7 +234,7 @@
                 @foreach ($products as $product)
                 <div itemscope itemtype="https://schema.org/Product">
                     <div class="img-wrapper mb-2">
-                        <img data-src="{{ $product->img }}" itemprop="image"
+                        <img src="{{ asset($product->img) }}" data-src="{{ $product->img }}" itemprop="image"
                             alt="{{ $product->{'title_' . app()->getLocale()} }}" class="lazy">
                     </div>
                     <div class="justify-content-between align-items-center py-2">
@@ -264,7 +264,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <img data-src="{{ $product->img }}" class="w-100 lazy fluid-i"
+                                    <img src="{{ $product->img }}" data-src="{{ $product->img }}" class="w-100 lazy fluid-i"
                                         alt="{{ $product->{'title_' . app()->getLocale()} }}">
                                 </div>
                                 <div class="col-lg-6 d-flex justify-content-between"
@@ -333,7 +333,7 @@
             <h2 class="text-uppercase m-0 py-4 px-2">{{ __('translation.title_etapy') }}</h2>
             <div class="row brd-top">
                 <div class="col-lg-6 py-4 px-4 text-center text-center">
-                    <img data-src="/storage/photos/1/gallery/rulon-etapy.png" class="w-100 lazy fluid-i sticky">
+                    <img data-src="img/rulon-etapy.png" class="w-100 lazy fluid-i sticky">
                 </div>
                 <div class="col-lg-6 brd-right">
                     @php
